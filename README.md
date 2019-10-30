@@ -5,9 +5,9 @@ React Steps Wizard
 1. download nodeJS, if you don't have it already.
 2. open a terminal and run: npm i steps-wizard (in your project directory).
 
-## An usage example of the wizard:
+## A usage example of the wizard:
 
-import { StepsWizardContext, StepsWizard, StepsWizardProps, StepMap } from 'steps-wizard';
+```import { StepsWizardContext, StepsWizard, StepsWizardProps, StepMap } from 'steps-wizard';
 
 type StepCompProps = {
   label: string;
@@ -47,3 +47,4 @@ const App: React.FC = () => {
     </div>
   );
 }
+```
