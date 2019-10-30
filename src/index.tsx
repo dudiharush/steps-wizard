@@ -29,7 +29,7 @@ const StepCompProps = ({ label, nextStepName }: StepCompProps) => {
 
 function App() {
   const stepsWizardProps: StepsWizardProps = {
-    stepsMap: {
+    stepMap: {
       one: <StepCompProps label="one" nextStepName="two" />,
       two: <StepCompProps label="two" nextStepName="three" />,
       three: <StepCompProps label="three" />

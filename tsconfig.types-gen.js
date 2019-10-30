@@ -18,7 +18,7 @@
     "outDir": "./dist",
     "jsx": "react",
     "declaration": true,
-    "declarationDir": "./dist",
+    "declarationDir": "./dist/types",
     "emitDeclarationOnly": true
   },
   "include": [

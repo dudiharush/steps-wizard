@@ -6,14 +6,18 @@ export const StepsWizardContext = React.createContext<{
   setNextStep: (stepName: string) => void;
   setPreviouseStep: () => void;
   getHasPreviousStep: () => boolean;
-}>({setNextStep: (stepName: string)=>{}, setPreviouseStep: ()=>{}, getHasPreviousStep:()=>false});
+}>({
+  setNextStep: (stepName: string) => {},
+  setPreviouseStep: () => {},
+  getHasPreviousStep: () => false
+});
 
 export type StepsWizardProps = {
-  stepsMap: StepMap;
+  stepMap: StepMap;
   startStepName: string;
 };
 
-export const StepsWizard = ({ stepsMap, startStepName }: StepsWizardProps) => {
+export const StepsWizard = ({ stepMap, startStepName }: StepsWizardProps) => {
   const [stepsRoute, setStepsRoute] = React.useState([startStepName]);
 
   const setNextStep = (stepName: string) => {
@@ -36,7 +40,7 @@ export const StepsWizard = ({ stepsMap, startStepName }: StepsWizardProps) => {
     <StepsWizardContext.Provider
       value={{ setNextStep, setPreviouseStep, getHasPreviousStep }}
     >
-      {stepsMap[currentStepName()]}
+      {stepMap[currentStepName()]}
     </StepsWizardContext.Provider>
   );
 };

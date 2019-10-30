@@ -1,6 +1,6 @@
 {
   "name": "steps-wizard",
-  "main": "dist/ts-index.cjs.js",
+  "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "version": "0.1.0",
   "private": true,

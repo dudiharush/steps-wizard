@@ -22,7 +22,7 @@
     "isolatedModules": true
   },
   "include": [
-    "src/StepsWizard/*"
+    "src/exports/index.ts"
   ],
   "exclude": [
     "node_modules"
