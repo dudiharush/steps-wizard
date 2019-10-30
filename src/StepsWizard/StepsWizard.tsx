@@ -1,12 +1,12 @@
 import * as React from "react";
 
-type StepMap = { [stepName: string]: JSX.Element };
+export type StepMap = { [stepName: string]: JSX.Element };
 
 export const StepsWizardContext = React.createContext<{
-  setNextStep?: (stepName: string) => void;
-  setPreviouseStep?: () => void;
-  getHasPreviousStep?: () => boolean;
-}>({});
+  setNextStep: (stepName: string) => void;
+  setPreviouseStep: () => void;
+  getHasPreviousStep: () => boolean;
+}>({setNextStep: (stepName: string)=>{}, setPreviouseStep: ()=>{}, getHasPreviousStep:()=>false});
 
 export type StepsWizardProps = {
   stepsMap: StepMap;

@@ -4,8 +4,7 @@ import {
   StepsWizardContext,
   StepsWizard,
   StepsWizardProps
-} from "./StepsWizard";
-import "./styles.css";
+} from "./StepsWizard/StepsWizard";
 
 type StepCompProps = {
   label: string;

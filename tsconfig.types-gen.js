@@ -17,9 +17,9 @@
     "resolveJsonModule": true,
     "outDir": "./dist",
     "jsx": "react",
-    "noEmit": true,
-    "allowJs": true,
-    "isolatedModules": true
+    "declaration": true,
+    "declarationDir": "./dist",
+    "emitDeclarationOnly": true
   },
   "include": [
     "src/StepsWizard/*"
