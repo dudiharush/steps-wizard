@@ -2,7 +2,7 @@ React Steps Wizard
 
 ## Installation Steps:
 
-1. download nodeJS, if you don't have it already.
+1. download and install nodeJS, if you don't have it already.
 2. open a terminal and run: npm i steps-wizard (in your project directory).
 
 ## A usage example of the wizard:
