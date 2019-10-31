@@ -1,2 +1,2 @@
-export { StepsWizard, StepsWizardContext} from '../StepsWizard/StepsWizard';
+export { StepsWizard, StepsWizardContext, Step} from '../StepsWizard/StepsWizard';
 
