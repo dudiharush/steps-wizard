@@ -7,7 +7,8 @@ React Steps Wizard
 
 ## A usage example of the wizard:
 
-```import {
+```
+import {
   StepsWizardContext,
   StepsWizard,
   Step
