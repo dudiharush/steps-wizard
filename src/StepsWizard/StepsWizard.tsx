@@ -2,6 +2,15 @@ import * as React from "react";
 
 export type StepMap = { [stepName: string]: JSX.Element };
 
+export type StepsWizardProps = {
+  startStepName: string;
+};
+
+export type StepProps = {
+  name: string;
+  component: JSX.Element;
+};
+
 export const StepsWizardContext = React.createContext<{
   setNextStep: (stepName: string) => void;
   setPreviouseStep: () => void;
@@ -12,12 +21,19 @@ export const StepsWizardContext = React.createContext<{
   getHasPreviousStep: () => false
 });
 
-export type StepsWizardProps = {
-  stepMap: StepMap;
-  startStepName: string;
-};
+export const Step = ({ component }: StepProps) => component;
 
-export const StepsWizard = ({ stepMap, startStepName }: StepsWizardProps) => {
+export const StepsWizard = ({ startStepName, children }: React.PropsWithChildren<StepsWizardProps>) => {
+  const [stepMap, setStepMap] = React.useState<StepMap>({});
+
+  React.useEffect(()=>{
+    const steps:StepMap = {};
+    React.Children.forEach(children as React.ReactElement<StepProps>[], ({props}) => {
+      steps[props.name] = props.component;
+    });
+    setStepMap(steps);
+  },[children])
+  
   const [stepsRoute, setStepsRoute] = React.useState([startStepName]);
 
   const setNextStep = (stepName: string) => {

@@ -3,14 +3,14 @@ import { render } from "react-dom";
 import {
   StepsWizardContext,
   StepsWizard,
-  StepsWizardProps
+  Step
 } from "./StepsWizard/StepsWizard";
 
-type StepCompProps = {
+type SomeCompProps = {
   label: string;
   nextStepName?: string;
 };
-const StepCompProps = ({ label, nextStepName }: StepCompProps) => {
+const SomeComp = ({ label, nextStepName }: SomeCompProps) => {
   const {
     setNextStep,
     setPreviouseStep,
@@ -28,20 +28,14 @@ const StepCompProps = ({ label, nextStepName }: StepCompProps) => {
 };
 
 function App() {
-  const stepsWizardProps: StepsWizardProps = {
-    stepMap: {
-      one: <StepCompProps label="one" nextStepName="two" />,
-      two: <StepCompProps label="two" nextStepName="three" />,
-      three: <StepCompProps label="three" />
-    },
-    startStepName: "one"
-  };
   return (
     <div className="App">
       <h1>wizard usage</h1>
-      <StepsWizard {...stepsWizardProps} />
-      <br />
-      <StepsWizard {...stepsWizardProps} />
+      <StepsWizard startStepName='one'>
+        <Step name='one' component={<SomeComp label="one" nextStepName="two" />} />
+        <Step name='two' component={<SomeComp label="two" nextStepName="three" />} />
+        <Step name='three' component={<SomeComp label="three" />} />
+      </StepsWizard>
     </div>
   );
 }
