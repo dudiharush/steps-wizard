@@ -7,14 +7,17 @@ React Steps Wizard
 
 ## A usage example of the wizard:
 
-```import { StepsWizardContext, StepsWizard, StepsWizardProps, StepMap } from 'steps-wizard';
+```import {
+  StepsWizardContext,
+  StepsWizard,
+  Step
+} from "./StepsWizard/StepsWizard";
 
-type StepCompProps = {
+type SomeCompProps = {
   label: string;
   nextStepName?: string;
 };
-
-const StepCompProps = ({ label, nextStepName }: StepCompProps) => {
+const SomeComp = ({ label, nextStepName }: SomeCompProps) => {
   const {
     setNextStep,
     setPreviouseStep,
@@ -31,19 +34,15 @@ const StepCompProps = ({ label, nextStepName }: StepCompProps) => {
   );
 };
 
-const App: React.FC = () => {
-  const stepMap: StepMap = {
-    one: <StepCompProps label="one" nextStepName="two" />,
-    two: <StepCompProps label="two" nextStepName="three" />,
-    three: <StepCompProps label="three" />
-}
-  const stepsWizardProps: StepsWizardProps = {
-    stepMap,
-    startStepName: "one"
-  };
+function App() {
   return (
     <div className="App">
-       <StepsWizard {...stepsWizardProps} />
+      <h1>wizard usage</h1>
+      <StepsWizard startStepName='one'>
+        <Step name='one' component={<SomeComp label="one" nextStepName="two" />} />
+        <Step name='two' component={<SomeComp label="two" nextStepName="three" />} />
+        <Step name='three' component={<SomeComp label="three" />} />
+      </StepsWizard>
     </div>
   );
 }
