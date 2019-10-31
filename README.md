@@ -12,7 +12,7 @@ import {
   StepsWizardContext,
   StepsWizard,
   Step
-} from "./StepsWizard/StepsWizard";
+} from "steps-wizard";
 
 type SomeCompProps = {
   label: string;
