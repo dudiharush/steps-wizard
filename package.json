@@ -25,6 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prepublish": "rm -rf ./dist && npm run build",
     "build": "react-scripts build",
     "build:package": "rollup -c && npm run build:types",
     "build:types": "tsc -p tsconfig.types-gen.js",
