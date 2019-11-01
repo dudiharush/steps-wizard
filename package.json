@@ -1,20 +1,26 @@
 {
   "name": "steps-wizard",
-  "main": "dist/index.cjs.js",
+  "main": "dist/index.js",
   "module": "dist/index.js",
-  "version": "0.1.0",
-  "private": true,
-  "types": "dist/index.d.ts",
+  "version": "1.0.10",
+  "description": "Easy navigation management between react components, usually used for wizards with BACK and NEXT buttons",
+  "types": "dist/types/StepsWizard/StepsWizard.d.ts",
+  "keywords": [
+    "steps",
+    "wizard"
+  ],
   "dependencies": {
     "@types/jest": "24.0.20",
     "@types/node": "12.11.7",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.3",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
     "react-scripts": "3.2.0",
     "rollup-plugin-typescript2": "^0.24.3",
     "typescript": "3.6.4"
+  },
+  "peerDependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
   },
   "devDependencies": {
     "rollup": "^1.23.0",
@@ -25,9 +31,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prepublish": "rm -rf ./dist && npm run build",
-    "build": "react-scripts build",
-    "build:package": "rollup -c && npm run build:types",
+    "prepublish": "npm run build && npm version patch",
+    "build:web": "react-scripts build",
+    "build": "rollup -c && npm run build:types",
     "build:types": "tsc -p tsconfig.types-gen.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -46,5 +52,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "David Harush",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dudiharush/steps-wizard.git"
   }
 }
