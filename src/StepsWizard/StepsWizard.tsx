@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export type StepMap = { [stepName: string]: JSX.Element };
+type StepMap = { [stepName: string]: JSX.Element };
 
 export type StepsWizardProps = {
   startStepName: string;
