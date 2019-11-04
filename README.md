@@ -6,7 +6,8 @@ React Steps Wizard
 2. open a terminal and run: npm i steps-wizard (in your project directory).
 
 ## A usage example of the wizard:
-
+ [CodeSandbox usage example](https://codesandbox.io/s/steps-wizard-usage-l8km6)
+ 
 ```
 import {
   StepsWizardContext,
