@@ -4,7 +4,7 @@ import {
   StepsWizardContext,
   StepsWizard,
   Step
-} from "./StepsWizard/StepsWizard";
+} from "./exports";
 
 type SomeCompProps = {
   label: string;
