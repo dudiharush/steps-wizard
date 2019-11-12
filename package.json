@@ -1,7 +1,7 @@
 {
   "name": "steps-wizard",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/ejs/index.js",
   "version": "1.0.19",
   "description": "Easy navigation management between react components, usually used for wizards with BACK and NEXT buttons",
   "types": "dist/types/StepsWizard/StepsWizard.d.ts",
