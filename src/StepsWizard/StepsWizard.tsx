@@ -11,7 +11,7 @@ export type StepProps = {
   component: JSX.Element;
 };
 
-export const StepsWizardContext = React.createContext<{
+const StepsWizardContext = React.createContext<{
   setNextStep: (stepName: string) => void;
   setPreviouseStep: () => void;
   getHasPreviousStep: () => boolean;
@@ -22,6 +22,12 @@ export const StepsWizardContext = React.createContext<{
 });
 
 export const Step = ({ component }: StepProps) => component;
+
+export const useStepsWizard = () => {
+  return React.useContext(StepsWizardContext);
+}
+
+
 
 export const StepsWizard = ({ startStepName, children }: React.PropsWithChildren<StepsWizardProps>) => {
   const [stepMap, setStepMap] = React.useState<StepMap>({});

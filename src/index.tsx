@@ -1,7 +1,7 @@
 import * as React from "react";
 import { render } from "react-dom";
 import {
-  StepsWizardContext,
+  useStepsWizard,
   StepsWizard,
   Step
 } from "./exports";
@@ -15,7 +15,7 @@ const SomeComp = ({ label, nextStepName }: SomeCompProps) => {
     setNextStep,
     setPreviouseStep,
     getHasPreviousStep
-  } = React.useContext(StepsWizardContext);
+  } = useStepsWizard();
   return (
     <>
       {getHasPreviousStep() && <span onClick={setPreviouseStep}>{`<`}</span>}

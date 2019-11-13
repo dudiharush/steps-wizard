@@ -10,10 +10,10 @@ React Steps Wizard
  
 ```
 import {
-  StepsWizardContext,
+  useStepsWizard,
   StepsWizard,
   Step
-} from "steps-wizard";
+} from "./exports";
 
 type SomeCompProps = {
   label: string;
@@ -24,7 +24,7 @@ const SomeComp = ({ label, nextStepName }: SomeCompProps) => {
     setNextStep,
     setPreviouseStep,
     getHasPreviousStep
-  } = React.useContext(StepsWizardContext);
+  } = useStepsWizard();
   return (
     <>
       {getHasPreviousStep() && <span onClick={setPreviouseStep}>{`<`}</span>}
@@ -48,4 +48,7 @@ function App() {
     </div>
   );
 }
+
+const rootElement = document.getElementById("root");
+render(<App />, rootElement);
 ```
