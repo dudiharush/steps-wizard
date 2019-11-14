@@ -22,7 +22,7 @@
     "isolatedModules": true
   },
   "include": [
-    "src/exports/index.ts"
+    "src"
   ],
   "exclude": [
     "node_modules"

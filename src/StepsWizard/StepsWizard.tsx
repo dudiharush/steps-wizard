@@ -25,21 +25,25 @@ export const Step = ({ component }: StepProps) => component;
 
 export const useStepsWizard = () => {
   return React.useContext(StepsWizardContext);
-}
+};
 
-
-
-export const StepsWizard = ({ startStepName, children }: React.PropsWithChildren<StepsWizardProps>) => {
+export const StepsWizard = ({
+  startStepName,
+  children
+}: React.PropsWithChildren<StepsWizardProps>) => {
   const [stepMap, setStepMap] = React.useState<StepMap>({});
 
-  React.useEffect(()=>{
-    const steps:StepMap = {};
-    React.Children.forEach(children as React.ReactElement<StepProps>[], ({props}) => {
-      steps[props.name] = props.component;
-    });
+  React.useEffect(() => {
+    const steps: StepMap = {};
+    React.Children.forEach(
+      children as React.ReactElement<StepProps>[],
+      ({ props }) => {
+        steps[props.name] = props.component;
+      }
+    );
     setStepMap(steps);
-  },[children])
-  
+  }, [children]);
+
   const [stepsRoute, setStepsRoute] = React.useState([startStepName]);
 
   const setNextStep = (stepName: string) => {
