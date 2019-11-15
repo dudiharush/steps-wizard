@@ -11,14 +11,21 @@ export type StepProps = {
   component: JSX.Element;
 };
 
+type StepMetadata = {
+  isStepLoading: boolean;
+  setStepLoading: (isLoading: boolean) => void;
+};
+
 const StepsWizardContext = React.createContext<{
   setNextStep: (stepName: string) => void;
   setPreviouseStep: () => void;
   getHasPreviousStep: () => boolean;
+  meta: StepMetadata;
 }>({
   setNextStep: (stepName: string) => {},
   setPreviouseStep: () => {},
-  getHasPreviousStep: () => false
+  getHasPreviousStep: () => false,
+  meta: { isStepLoading: false, setStepLoading: () => {} }
 });
 
 export const Step = ({ component }: StepProps) => component;
@@ -32,6 +39,8 @@ export const StepsWizard = ({
   children
 }: React.PropsWithChildren<StepsWizardProps>) => {
   const [stepMap, setStepMap] = React.useState<StepMap>({});
+  const [isStepLoading, setStepLoading] = React.useState(false);
+  const [stepsRoute, setStepsRoute] = React.useState([startStepName]);
 
   React.useEffect(() => {
     const steps: StepMap = {};
@@ -43,8 +52,6 @@ export const StepsWizard = ({
     );
     setStepMap(steps);
   }, [children]);
-
-  const [stepsRoute, setStepsRoute] = React.useState([startStepName]);
 
   const setNextStep = (stepName: string) => {
     setStepsRoute(stepsRoute.concat(stepName));
@@ -64,7 +71,12 @@ export const StepsWizard = ({
 
   return (
     <StepsWizardContext.Provider
-      value={{ setNextStep, setPreviouseStep, getHasPreviousStep }}
+      value={{
+        setNextStep,
+        setPreviouseStep,
+        getHasPreviousStep,
+        meta: { isStepLoading, setStepLoading }
+      }}
     >
       {stepMap[currentStepName()]}
     </StepsWizardContext.Provider>
