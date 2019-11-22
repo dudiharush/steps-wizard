@@ -1,5 +1,9 @@
 React Steps Wizard
 
+## Description
+
+Easy navigation management between react components, usually used for wizards with BACK and NEXT buttons
+
 ## Installation Steps:
 
 1. download and install nodeJS, if you don't have it already.
