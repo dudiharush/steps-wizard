@@ -1,6 +1,6 @@
 import * as React from "react";
 
-type StepMap = { [stepName: string]: JSX.Element };
+type StepMap = Record<string, JSX.Element>;
 
 export type StepsWizardProps = {
   startStepName: string;
@@ -16,16 +16,27 @@ type StepMetadata = {
   setStepLoading: (isLoading: boolean) => void;
 };
 
-const StepsWizardContext = React.createContext<{
+interface StepsizardContectProps {
   setNextStep: (stepName: string) => void;
   setPreviouseStep: () => void;
   getHasPreviousStep: () => boolean;
   meta: StepMetadata;
-}>({
-  setNextStep: (stepName: string) => {},
-  setPreviouseStep: () => {},
+}
+
+const StepsWizardContext = React.createContext<StepsizardContectProps>({
+  setNextStep: (stepName: string) => {
+    return;
+  },
+  setPreviouseStep: () => {
+    return;
+  },
   getHasPreviousStep: () => false,
-  meta: { isStepLoading: false, setStepLoading: () => {} }
+  meta: {
+    isStepLoading: false,
+    setStepLoading: () => {
+      return;
+    }
+  }
 });
 
 export const Step = ({ component }: StepProps) => component;
